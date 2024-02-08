@@ -9,6 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/background"
         android:orientation="vertical"
         tools:context=".MainActivity">
 
@@ -43,20 +44,19 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-
         <TextView
             android:id="@+id/displayText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:background="@drawable/button_shape"
             android:gravity="center_horizontal"
             android:padding="6dp"
-            android:textColor="@color/green"
-            android:layout_marginRight="12dp"
             android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:textColor="@color/green"
             android:textSize="28sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/topLayout" />
@@ -99,13 +99,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
-                    android:layout_marginRight="6dp"
                     android:layout_marginTop="6dp"
+                    android:layout_marginRight="6dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_shape"
                     android:padding="6dp"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     tools:text="32" />
 
@@ -137,7 +137,6 @@
                     android:id="@+id/p2Score"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:layout_marginLeft="6dp"
                     android:layout_marginTop="6dp"
                     android:layout_marginRight="12dp"
@@ -145,7 +144,7 @@
                     android:background="@drawable/button_shape"
                     android:padding="6dp"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     tools:layout_editor_absoluteY="16dp"
@@ -154,6 +153,20 @@
 
         </LinearLayout>
 
+        <com.google.android.gms.ads.AdView
+
+            android:id="@+id/adViewTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            app:adSize="BANNER"
+            app:adUnitId="ca-app-pub-7956323291735248/5390515714"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/displayText"
+            app:layout_constraintVertical_bias="0.5"/>
 
         <LinearLayout
             android:id="@+id/linearLayout3"
@@ -161,10 +174,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/bottomLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/displayText">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -181,7 +194,7 @@
                     android:background="@drawable/button_shape"
                     android:padding="18dp"
                     android:textColor="@color/black"
-                    android:textSize="32sp" />
+                    android:textSize="40sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/R1C2"
@@ -192,7 +205,7 @@
                     android:background="@drawable/button_shape"
                     android:padding="18dp"
                     android:textColor="@color/black"
-                    android:textSize="32sp" />
+                    android:textSize="40sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/R1C3"
@@ -203,7 +216,7 @@
                     android:background="@drawable/button_shape"
                     android:padding="18dp"
                     android:textColor="@color/black"
-                    android:textSize="32sp" />
+                    android:textSize="40sp" />
 
             </LinearLayout>
 
@@ -222,7 +235,7 @@
                     android:background="@drawable/button_shape"
                     android:padding="18dp"
                     android:textColor="@color/black"
-                    android:textSize="32sp" />
+                    android:textSize="40sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/R2C2"
@@ -233,7 +246,7 @@
                     android:background="@drawable/button_shape"
                     android:padding="18dp"
                     android:textColor="@color/black"
-                    android:textSize="32sp" />
+                    android:textSize="40sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/R2C3"
@@ -244,7 +257,7 @@
                     android:background="@drawable/button_shape"
                     android:padding="18dp"
                     android:textColor="@color/black"
-                    android:textSize="32sp" />
+                    android:textSize="40sp" />
 
             </LinearLayout>
 
@@ -264,7 +277,7 @@
                     android:background="@drawable/button_shape"
                     android:padding="18dp"
                     android:textColor="@color/black"
-                    android:textSize="32sp" />
+                    android:textSize="40sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/R3C2"
@@ -275,7 +288,7 @@
                     android:background="@drawable/button_shape"
                     android:padding="18dp"
                     android:textColor="@color/black"
-                    android:textSize="32sp" />
+                    android:textSize="40sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/R3C3"
@@ -286,10 +299,25 @@
                     android:background="@drawable/button_shape"
                     android:padding="18dp"
                     android:textColor="@color/black"
-                    android:textSize="32sp" />
+                    android:textSize="40sp" />
 
             </LinearLayout>
         </LinearLayout>
+
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adViewBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            app:adSize="BANNER"
+            app:adUnitId="ca-app-pub-7956323291735248/3894149959"
+            app:layout_constraintBottom_toTopOf="@+id/bottomLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+            app:layout_constraintVertical_bias="0.7" />
 
         <LinearLayout
             android:id="@+id/bottomLayout"
@@ -330,8 +358,11 @@
                 android:layout_margin="12dp"
                 android:layout_weight="1"
                 android:background="@drawable/button_shape"
-                android:padding="18dp"
-                android:text="RESET"
+                android:paddingTop="18dp"
+                android:paddingBottom="18dp"
+                android:paddingRight="2dp"
+                android:paddingLeft="2dp"
+                android:text="SCORE RESET"
                 android:textColor="@color/black" />
         </LinearLayout>
 

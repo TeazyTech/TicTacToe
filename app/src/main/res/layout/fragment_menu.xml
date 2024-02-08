@@ -145,7 +145,6 @@
                     android:padding="6dp"
                     android:track="@drawable/switch_track"
                     android:trackTintMode="screen"
-                    android:checked="true"
                     android:switchPadding="12dp"
                     android:thumb="@drawable/switch_thumb"
                     android:text="Music"

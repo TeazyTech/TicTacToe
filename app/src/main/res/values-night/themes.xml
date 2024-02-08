@@ -2,7 +2,10 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.TicTacToeGame" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <item name="colorPrimary">#000000</item>
+        <item name="colorPrimaryDark">@color/my_dark_primary</item>
+        <item name="colorPrimary">@color/my_light_primary</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:navigationBarColor">@color/my_dark_primary</item>
     </style>
 </resources>
