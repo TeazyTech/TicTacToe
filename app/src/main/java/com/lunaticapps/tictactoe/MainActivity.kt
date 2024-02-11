@@ -9,6 +9,7 @@ import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
 import android.view.View
+import android.view.WindowManager
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -38,14 +39,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         FIRST_PLAYER_NAME = intent.getStringExtra("PLAYER1").toString()
         FIRST_PLAYER_NAME = makeSentenceCase(FIRST_PLAYER_NAME)
         SECOND_PLAYER_NAME = intent.getStringExtra("PLAYER2").toString()
         SECOND_PLAYER_NAME = makeSentenceCase(SECOND_PLAYER_NAME)
-        binding.firstPlayer.setText(FIRST_PLAYER_NAME + "")
+        binding.firstPlayer.setText(FIRST_PLAYER_NAME + " - X")
         binding.p1Score.setText("" + PLAYER1_SCORE)
-        binding.secondPlayer.setText(SECOND_PLAYER_NAME + "")
+        binding.secondPlayer.setText(SECOND_PLAYER_NAME + " - 0")
         binding.p2Score.setText("" + PLAYER2_SCORE)
         binding.displayText.setText(FIRST_PLAYER_NAME + "'s turn")
 
@@ -95,17 +100,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     board[i][j].setBackgroundResource(R.drawable.button_shape)
                 }
             }
+            haptic()
         }
 
         binding.reset.setOnClickListener() {
             PLAYER1_SCORE = 0
             PLAYER2_SCORE = 0
             updateScore()
+            haptic()
         }
 
         binding.menu.setOnClickListener() {
             val menuFragment = MenuFragment()
             menuFragment.show(supportFragmentManager, menuFragment.getTag())
+            haptic()
         }
 
 
@@ -126,47 +134,92 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (v.id) {
             R.id.R1C1 -> {
                 updateValue(row = 0, col = 0, player = PLAYER)
-                binding.R1C1.setBackgroundResource(R.drawable.button_clicked_shape)
+                if(PLAYER){
+                    binding.R1C1.setBackgroundResource(R.drawable.p1_button_clicked_shape)
+                }else{
+                    binding.R1C1.setBackgroundResource(R.drawable.p2_button_clicked_shape)
+                }
+                haptic()
             }
 
             R.id.R1C2 -> {
                 updateValue(row = 0, col = 1, player = PLAYER)
-                binding.R1C2.setBackgroundResource(R.drawable.button_clicked_shape)
+                if(PLAYER){
+                    binding.R1C2.setBackgroundResource(R.drawable.p1_button_clicked_shape)
+                }else{
+                    binding.R1C2.setBackgroundResource(R.drawable.p2_button_clicked_shape)
+                }
+                haptic()
             }
 
             R.id.R1C3 -> {
                 updateValue(row = 0, col = 2, player = PLAYER)
-                binding.R1C3.setBackgroundResource(R.drawable.button_clicked_shape)
+                if(PLAYER){
+                    binding.R1C3.setBackgroundResource(R.drawable.p1_button_clicked_shape)
+                }else{
+                    binding.R1C3.setBackgroundResource(R.drawable.p2_button_clicked_shape)
+                }
+                haptic()
             }
 
             R.id.R2C1 -> {
                 updateValue(row = 1, col = 0, player = PLAYER)
-                binding.R2C1.setBackgroundResource(R.drawable.button_clicked_shape)
+                if(PLAYER){
+                    binding.R2C1.setBackgroundResource(R.drawable.p1_button_clicked_shape)
+                }else{
+                    binding.R2C1.setBackgroundResource(R.drawable.p2_button_clicked_shape)
+                }
+                haptic()
             }
 
             R.id.R2C2 -> {
                 updateValue(row = 1, col = 1, player = PLAYER)
-                binding.R2C2.setBackgroundResource(R.drawable.button_clicked_shape)
+                if(PLAYER){
+                    binding.R2C2.setBackgroundResource(R.drawable.p1_button_clicked_shape)
+                }else{
+                    binding.R2C2.setBackgroundResource(R.drawable.p2_button_clicked_shape)
+                }
+                haptic()
             }
 
             R.id.R2C3 -> {
                 updateValue(row = 1, col = 2, player = PLAYER)
-                binding.R2C3.setBackgroundResource(R.drawable.button_clicked_shape)
+                if(PLAYER){
+                    binding.R2C3.setBackgroundResource(R.drawable.p1_button_clicked_shape)
+                }else{
+                    binding.R2C3.setBackgroundResource(R.drawable.p2_button_clicked_shape)
+                }
+                haptic()
             }
 
             R.id.R3C1 -> {
                 updateValue(row = 2, col = 0, player = PLAYER)
-                binding.R3C1.setBackgroundResource(R.drawable.button_clicked_shape)
+                if(PLAYER){
+                    binding.R3C1.setBackgroundResource(R.drawable.p1_button_clicked_shape)
+                }else{
+                    binding.R3C1.setBackgroundResource(R.drawable.p2_button_clicked_shape)
+                }
+                haptic()
             }
 
             R.id.R3C2 -> {
                 updateValue(row = 2, col = 1, player = PLAYER)
-                binding.R3C2.setBackgroundResource(R.drawable.button_clicked_shape)
+                if(PLAYER){
+                    binding.R3C2.setBackgroundResource(R.drawable.p1_button_clicked_shape)
+                }else{
+                    binding.R3C2.setBackgroundResource(R.drawable.p2_button_clicked_shape)
+                }
+                haptic()
             }
 
             R.id.R3C3 -> {
                 updateValue(row = 2, col = 2, player = PLAYER)
-                binding.R3C3.setBackgroundResource(R.drawable.button_clicked_shape)
+                if(PLAYER){
+                    binding.R3C3.setBackgroundResource(R.drawable.p1_button_clicked_shape)
+                }else{
+                    binding.R3C3.setBackgroundResource(R.drawable.p2_button_clicked_shape)
+                }
+                haptic()
             }
 
         }
@@ -324,6 +377,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         vibrator.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE))
     }
 
+    private fun haptic() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val vibratorManager =
+                getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager
+
+            vibrator = vibratorManager.defaultVibrator
+        } else {
+            @Suppress("DEPRECATION")
+            vibrator = getSystemService(VIBRATOR_SERVICE) as Vibrator
+        }
+        val vibrationEffect = VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK)
+        vibrator.vibrate(vibrationEffect)
+    }
+
     private fun makeSentenceCase(name: String): String {
         return name.substring(0, 1).uppercase() + name.substring(1)
     }
@@ -336,19 +403,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-//    fun toggleMediaPlayer( switchStatus: Boolean) {
-//        if(switchStatus){
-//            if (musicPlayer.isPlaying) {
-//            }else{
-//                musicPlayer.start()
-//            }
-//        }else{
-//            if (musicPlayer.isPlaying) {
-//                musicPlayer.pause()
-//            }
-//        }
-//
-//    }
 
     fun startMediaPlayer() {
         if (!musicPlayer.isPlaying) {
@@ -383,7 +437,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onDestroy() {
         super.onDestroy()
-        mediaPlayer.release()
         musicPlayer.release()
     }
 }

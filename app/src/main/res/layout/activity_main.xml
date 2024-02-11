@@ -9,9 +9,20 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background"
+        android:background="@drawable/background_img"
         android:orientation="vertical"
         tools:context=".MainActivity">
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/animation"
@@ -31,30 +42,19 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animation2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:elevation="3dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/displayText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/button_shape"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/score_board_shape"
             android:gravity="center_horizontal"
             android:padding="6dp"
+            android:textColor="@color/red_cherry"
+            android:layout_marginTop="74dp"
             android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
-            android:textColor="@color/green"
             android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -67,12 +67,14 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
+            android:layout_marginTop="25dp"
+            android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical">
@@ -85,7 +87,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginRight="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_shape"
+                    android:background="@drawable/button_shape_p1"
                     android:padding="6dp"
                     android:textColor="@color/black"
                     android:textSize="18sp"
@@ -102,7 +104,7 @@
                     android:layout_marginTop="6dp"
                     android:layout_marginRight="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_shape"
+                    android:background="@drawable/button_shape_p1"
                     android:padding="6dp"
                     android:textColor="@color/black"
                     android:textSize="20sp"
@@ -112,7 +114,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical">
@@ -126,7 +128,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginRight="12dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_shape"
+                    android:background="@drawable/button_shape_p2"
                     android:padding="6dp"
                     android:textColor="@color/black"
                     android:textSize="18sp"
@@ -141,7 +143,7 @@
                     android:layout_marginTop="6dp"
                     android:layout_marginRight="12dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_shape"
+                    android:background="@drawable/button_shape_p2"
                     android:padding="6dp"
                     android:textColor="@color/black"
                     android:textSize="20sp"
@@ -158,15 +160,15 @@
             android:id="@+id/adViewTop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="12dp"
             app:adSize="BANNER"
             app:adUnitId="ca-app-pub-7956323291735248/5390515714"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/displayText"
-            app:layout_constraintVertical_bias="0.5"/>
+            app:layout_constraintTop_toBottomOf="@+id/topLayout" />
 
         <LinearLayout
             android:id="@+id/linearLayout3"
@@ -174,10 +176,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="vertical"
+            android:layout_marginTop="75dp"
             app:layout_constraintBottom_toTopOf="@+id/bottomLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/displayText">
+            app:layout_constraintTop_toBottomOf="@+id/topLayout">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -309,8 +312,8 @@
             android:id="@+id/adViewBottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             app:adSize="BANNER"
             app:adUnitId="ca-app-pub-7956323291735248/3894149959"
             app:layout_constraintBottom_toTopOf="@+id/bottomLayout"
@@ -324,6 +327,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginBottom="34dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -335,7 +339,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:layout_weight="1"
-                android:background="@drawable/button_shape"
+                android:background="@drawable/button_shape_menu"
                 android:padding="18dp"
                 android:text="MENU"
                 android:textColor="@color/black" />
@@ -346,7 +350,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:layout_weight="1"
-                android:background="@drawable/button_shape"
+                android:background="@drawable/button_shape_restart"
                 android:padding="18dp"
                 android:text="RESTART"
                 android:textColor="@color/black" />
@@ -357,11 +361,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:layout_weight="1"
-                android:background="@drawable/button_shape"
-                android:paddingTop="18dp"
-                android:paddingBottom="18dp"
-                android:paddingRight="2dp"
+                android:background="@drawable/button_shape_reset"
                 android:paddingLeft="2dp"
+                android:paddingTop="18dp"
+                android:paddingRight="2dp"
+                android:paddingBottom="18dp"
                 android:text="SCORE RESET"
                 android:textColor="@color/black" />
         </LinearLayout>

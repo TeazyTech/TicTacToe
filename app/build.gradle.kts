@@ -37,8 +37,15 @@ android {
     buildFeatures{
         dataBinding = true
     }
+    sourceSets {
+        getByName("main") {
+            assets {
+                srcDirs("src\\main\\assets", "src\\main\\assets")
+            }
+        }
+    }
 
-   }
+}
 
 dependencies {
 

@@ -1,17 +1,13 @@
 package com.lunaticapps.tictactoe;
 
+
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Switch;
-
 import androidx.annotation.NonNull;
-
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.lunaticapps.tictactoe.databinding.FragmentMenuBinding;
 
@@ -31,6 +27,20 @@ public class MenuFragment extends BottomSheetDialogFragment {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         });
+
+
+        binding.gameRule.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), RulesActivity.class);
+            intent.putExtra("NAME", "rules");
+            startActivity(intent);
+        });
+
+        binding.privacyPolicy.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), RulesActivity.class);
+            intent.putExtra("NAME", "policy");
+            startActivity(intent);
+        });
+
 
         binding.rateGame.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id="+appPackageName))));
 
@@ -60,6 +70,9 @@ public class MenuFragment extends BottomSheetDialogFragment {
             });
         }
 
+
         return binding.getRoot();
     }
+
+
 }
