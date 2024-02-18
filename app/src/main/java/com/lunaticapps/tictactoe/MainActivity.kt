@@ -64,7 +64,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         //for Ads
         MobileAds.initialize(this) {}
         val adRequest = AdRequest.Builder().build()
-        binding.adViewTop.loadAd(adRequest)
         binding.adViewBottom.loadAd(adRequest)
 
 

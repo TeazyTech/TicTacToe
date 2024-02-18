@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
 
     </data>
@@ -42,19 +43,19 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/displayText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="24dp"
             android:layout_marginRight="12dp"
             android:background="@drawable/score_board_shape"
             android:gravity="center_horizontal"
             android:padding="6dp"
             android:textColor="@color/red_cherry"
-            android:layout_marginTop="74dp"
-            android:layout_marginLeft="12dp"
             android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,9 +66,9 @@
             android:id="@+id/topLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
-            android:layout_marginTop="25dp"
             android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -155,32 +156,17 @@
 
         </LinearLayout>
 
-        <com.google.android.gms.ads.AdView
-
-            android:id="@+id/adViewTop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="12dp"
-            app:adSize="BANNER"
-            app:adUnitId="ca-app-pub-7956323291735248/5390515714"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topLayout" />
-
         <LinearLayout
             android:id="@+id/linearLayout3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginBottom="101dp"
             android:orientation="vertical"
-            android:layout_marginTop="75dp"
-            app:layout_constraintBottom_toTopOf="@+id/bottomLayout"
+            app:layout_constraintBottom_toBottomOf="@+id/bottomLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topLayout">
+            app:layout_constraintTop_toTopOf="@+id/displayText">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -314,20 +300,19 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:layout_marginBottom="12dp"
             app:adSize="BANNER"
             app:adUnitId="ca-app-pub-7956323291735248/3894149959"
             app:layout_constraintBottom_toTopOf="@+id/bottomLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-            app:layout_constraintVertical_bias="0.7" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <LinearLayout
             android:id="@+id/bottomLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginBottom="34dp"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
