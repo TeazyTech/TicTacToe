@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_img3"
+        tools:context=".ChooseGameActivity">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Game Difficulty"
+                android:textSize="44sp"
+                android:textStyle="bold" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/imageButton3x3"
+                android:layout_width="320dp"
+                android:layout_height="72dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/button_shape_restart"
+                android:elevation="1dp"
+                android:fontFamily="sans-serif"
+                android:padding="12dp"
+                android:src="@drawable/app_icon"
+                android:text="Easy"
+                android:textColor="@color/black"
+                android:textSize="28sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/imageButton4x4"
+                android:layout_width="320dp"
+                android:layout_height="72dp"
+                android:layout_marginTop="36dp"
+                android:background="@drawable/button_shape"
+                android:elevation="1dp"
+                android:fontFamily="sans-serif"
+                android:padding="12dp"
+                android:src="@drawable/app_icon"
+                android:text="Medium"
+                android:textColor="@color/black"
+                android:textSize="28sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/imageButton5x5"
+                android:layout_width="320dp"
+                android:layout_height="72dp"
+                android:layout_marginTop="36dp"
+                android:background="@drawable/button_shape_reset"
+                android:elevation="1dp"
+                android:fontFamily="sans-serif"
+                android:padding="12dp"
+                android:src="@drawable/app_icon"
+                android:text="Hard"
+                android:textColor="@color/black"
+                android:textSize="28sp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

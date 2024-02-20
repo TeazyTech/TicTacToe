@@ -68,8 +68,33 @@ public class MenuFragment extends BottomSheetDialogFragment {
                     activity.stopMediaPlayer();
                 }
             });
-        }
+        } else if (getActivity() instanceof MainActivity4x4) {
+            MainActivity4x4 activity = (MainActivity4x4) getActivity();
 
+            // Set the initial state of the Switch based on MediaPlayer state
+            binding.musicSwitch.setChecked(activity.isMediaPlayerPlaying());
+
+            binding.musicSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                if (isChecked) {
+                    activity.startMediaPlayer();
+                } else {
+                    activity.stopMediaPlayer();
+                }
+            });
+        }else if (getActivity() instanceof MainActivity5x5) {
+            MainActivity5x5 activity = (MainActivity5x5) getActivity();
+
+            // Set the initial state of the Switch based on MediaPlayer state
+            binding.musicSwitch.setChecked(activity.isMediaPlayerPlaying());
+
+            binding.musicSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                if (isChecked) {
+                    activity.startMediaPlayer();
+                } else {
+                    activity.stopMediaPlayer();
+                }
+            });
+        }
 
         return binding.getRoot();
     }

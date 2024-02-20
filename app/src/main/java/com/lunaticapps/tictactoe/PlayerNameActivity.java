@@ -16,6 +16,8 @@ import android.view.WindowManager;
 
 import com.lunaticapps.tictactoe.databinding.ActivityPlayerNameBinding;
 
+import java.util.Objects;
+
 public class PlayerNameActivity extends AppCompatActivity {
 
     ActivityPlayerNameBinding binding;
@@ -40,7 +42,15 @@ public class PlayerNameActivity extends AppCompatActivity {
                     haptic();
                     String player1Name = binding.player1.getText().toString();
                     String player2Name = binding.player2.getText().toString();
-                    Intent intent = new Intent(PlayerNameActivity.this, MainActivity.class);
+                    String game = getIntent().getStringExtra("GAME");
+                    Intent intent;
+                    if(Objects.equals(game, "3x3")){
+                        intent = new Intent(PlayerNameActivity.this, MainActivity.class);
+                    } else if (Objects.equals(game, "4x4")) {
+                        intent = new Intent(PlayerNameActivity.this, MainActivity4x4.class);
+                    } else{
+                        intent = new Intent(PlayerNameActivity.this, MainActivity5x5.class);
+                    }
                     intent.putExtra("PLAYER1", player1Name);
                     intent.putExtra("PLAYER2", player2Name);
                     startActivity(intent);
@@ -49,7 +59,6 @@ public class PlayerNameActivity extends AppCompatActivity {
 
             }
         });
-
     }
 
     private void vivrate() {
