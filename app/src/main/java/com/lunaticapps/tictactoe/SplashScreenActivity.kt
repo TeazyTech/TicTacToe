@@ -1,23 +1,20 @@
-package com.lunaticapps.tictactoe;
+package com.lunaticapps.tictactoe
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.os.Bundle
+import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-
-public class SplashScreenActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen);
-
-
-        new Handler().postDelayed(() -> {
-            Intent intent = new Intent(SplashScreenActivity.this, ChooseGameActivity.class);
-            startActivity(intent);
-            finish();
-        }, 2000);
+@SuppressLint("CustomSplashScreen")
+class SplashScreenActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_splash_screen)
+        Handler().postDelayed({
+            val intent = Intent(this@SplashScreenActivity, ChooseGameActivity::class.java)
+            startActivity(intent)
+            finish()
+        }, 2000)
     }
 }
